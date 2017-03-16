@@ -1,0 +1,31 @@
+
+// numbers , operations and result button
+
+.calculations-buttons {
+  margin: 0 21px 0 16px;
+
+  .operations {
+    float: right;
+    width: 67px;
+  }
+
+  .numbers-and-result {
+    display: inline-block;
+    width: 225px;
+    text-align: left;
+    }
+
+    .result {
+      background: #f1ff92;
+      box-shadow: 0px 4px #9da853;
+
+      &:hover {
+        background: #abb850;
+        box-shadow: 0px 4px #717a33;
+      }
+      &:active {
+        box-shadow: none;
+      }
+    }
+  
+}

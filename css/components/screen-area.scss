@@ -1,0 +1,45 @@
+// screen area and it's clearing buttons
+
+.screen-area {
+  .calculator-screen {
+    padding: 9px;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-right: 19px;
+    display: inline-block;
+    width: 202px;
+    height: 23px;
+    background-color: #7da8b9;
+    border-radius: 5px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+
+    // special style for screen clearing buttons
+
+  .clearing-buttons {
+    display: inline-block;
+    float: left;
+    margin-top: 22px;
+    margin-left: 22px;
+
+    button {
+      width: 30px;
+      margin: 0px;
+      background-color: #ffa0a8;
+      color: white;
+      box-shadow: 0px 4px #ff7b88;
+
+      &:hover {
+        background: #f68991;
+        box-shadow: 0px 4px #d3545d;
+      }
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+}
