@@ -7,45 +7,42 @@
 		<link rel="stylesheet" href="css/output.css">
 		<script src="script/script.js"></script>
 		<script src="https://use.fontawesome.com/2aaa2d8471.js"></script>
-
 	</head>
 	<body>
 		<div class="calculator">
 			
 			<div class="screen-area">
 				<div class="clearing-buttons">
-					<button type="button" onclick="inputvalue(this)" value="">C</button>
-					<button type="button" onclick="removeLast()"><i class="fa fa-trash" aria-hidden="true"></i>		</button>
+					<button type="button" id="clear" value="">C</button>
+					<button type="button" id="delete" ><i class="fa fa-trash" aria-hidden="true"></i></button>
 				</div>
 				<div class="calculator-screen" id="demo"></div>
 			</div>
-
 			<div class="calculations-buttons">
 				<div class="numbers-and-result">
-					<button type="button" onclick="inputvalue(this)" value="7">7</button>
-					<button type="button" onclick="inputvalue(this)" value="8">8</button>
-					<button type="button" onclick="inputvalue(this)" value="9">9</button>
+					<button type="button" id="seven" value="7">7</button>
+					<button type="button" id="eight" value="8">8</button>
+					<button type="button" id="nine" value="9">9</button>
 					
-					<button type="button" onclick="inputvalue(this)" value="4">4</button>
-					<button type="button" onclick="inputvalue(this)" value="5">5</button>
-					<button type="button" onclick="inputvalue(this)" value="6">6</button>
+					<button type="button" id="four" value="4">4</button>
+					<button type="button" id="five" value="5">5</button>
+					<button type="button" id="six"  value="6">6</button>
 					
-					<button type="button" onclick="inputvalue(this)" value="1">1</button>
-					<button type="button" onclick="inputvalue(this)" value="2">2</button>
-					<button type="button" onclick="inputvalue(this)" value="3">3</button>
+					<button type="button" id="one" value="1">1</button>
+					<button type="button" id="two" value="2">2</button>
+					<button type="button" id="three" value="3">3</button>
 					
 					
-					<button type="button" onclick="inputvalue(this)" value="0">0</button>
-					<button type="button" id = "dot-btn" onclick="inputvalue(this)" value=".">.</button>
-					<button type="button" class="result" onclick="result()" value=" ">=</button>
+					<button type="button" id="zero" value="0">0</button>
+					<button type="button" id = "dot-btn" value=".">.</button>
+					<button type="button" class="result" id = "result" value=" ">=</button>
 				</div>
 				<div class="operations">
-					<button type="button" id="plus-btn" onclick="inputvalue(this)" value="+">+</button>
-					<button type="button" id="min-btn" onclick="inputvalue(this)" value="-">-</button>
-					<button type="button" id="divison_btn" onclick="inputvalue(this)" value="÷">÷</button>
-					<button type="button" id="mul-btn" onclick="inputvalue(this)" value="×">×</button>
+					<button type="button" id="plus-btn"  value="+">+</button>
+					<button type="button" id="min-btn"  value="-">-</button>
+					<button type="button" id="divison_btn"  value="÷">÷</button>
+					<button type="button" id="mul-btn"  value="×">×</button>
 				</div>
 			</div>
 		</div>
-
 	</body>
