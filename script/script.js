@@ -1,37 +1,37 @@
-//add event listeners to  buttons
+//add event listeners to  buttons on window load
 window.onload = function () {
 	document.getElementById("plus-btn").addEventListener("click", replace);
 	document.getElementById("min-btn").addEventListener("click", replace);
 	document.getElementById("mul-btn").addEventListener("click", replace);
 	document.getElementById("divison_btn").addEventListener("click", replace);
-	document.getElementById("dot-btn").addEventListener("click", inputvalue);
+	document.getElementById("dot-btn").addEventListener("click", inputValue);
 
 	document.getElementById("dot-btn").addEventListener("click", singleDot);
 
-	document.getElementById("zero").addEventListener("click", inputvalue);
+	document.getElementById("zero").addEventListener("click", inputValue);
 
-	document.getElementById("one").addEventListener("click", inputvalue);
-	document.getElementById("two").addEventListener("click", inputvalue);
-	document.getElementById("three").addEventListener("click", inputvalue);
+	document.getElementById("one").addEventListener("click", inputValue);
+	document.getElementById("two").addEventListener("click", inputValue);
+	document.getElementById("three").addEventListener("click", inputValue);
 
-	document.getElementById("four").addEventListener("click", inputvalue);
-	document.getElementById("five").addEventListener("click", inputvalue);
-	document.getElementById("six").addEventListener("click", inputvalue);
+	document.getElementById("four").addEventListener("click", inputValue);
+	document.getElementById("five").addEventListener("click", inputValue);
+	document.getElementById("six").addEventListener("click", inputValue);
 
-	document.getElementById("seven").addEventListener("click", inputvalue);
-	document.getElementById("eight").addEventListener("click", inputvalue);
-	document.getElementById("nine").addEventListener("click", inputvalue);
+	document.getElementById("seven").addEventListener("click", inputValue);
+	document.getElementById("eight").addEventListener("click", inputValue);
+	document.getElementById("nine").addEventListener("click", inputValue);
 
-	document.getElementById("plus-btn").addEventListener("click", inputvalue);
-	document.getElementById("min-btn").addEventListener("click", inputvalue);
-	document.getElementById("mul-btn").addEventListener("click", inputvalue);
-	document.getElementById("divison_btn").addEventListener("click", inputvalue);
+	document.getElementById("plus-btn").addEventListener("click", inputValue);
+	document.getElementById("min-btn").addEventListener("click", inputValue);
+	document.getElementById("mul-btn").addEventListener("click", inputValue);
+	document.getElementById("divison_btn").addEventListener("click", inputValue);
 
-	document.getElementById("clear").addEventListener("click", inputvalue);
+	document.getElementById("clear").addEventListener("click", inputValue);
 	document.getElementById("delete").addEventListener("click", removeLast);
 
 	document.getElementById("result").addEventListener("click", result);
-}
+};
 
 // global variables
 // signs array
@@ -39,6 +39,8 @@ var signs = ["-", "+", "÷", "×"];
 
 /**
  * function to remove the last letter
+ *
+ * @return void
  */
 function removeLast() {
 	// calculator screen value
@@ -50,8 +52,10 @@ function removeLast() {
 
 /**
  * input the value of the button to the calculator screen
+ *
+ * @return void
  */
-function inputvalue() {
+function inputValue() {
 	// get btn val
 	var input = this.value;
 	// calculator screen value
@@ -78,28 +82,34 @@ function inputvalue() {
 
 /**
  * replace signs function to change the operation
+ *
+ * @return void
  */
 function replace() {
 	var input = this.value;
 	// calculator screen value
 	var calc_screen = document.getElementById("demo").innerHTML;
-	// deleteing last letter if this letter is a sign and the input is a sign also.
+	// deleting last letter if this letter is a sign and the input is a sign also.
 	if (signs.indexOf(calc_screen[calc_screen.length - 1]) >= 0 && signs.indexOf(input) >= 0) {
 		removeLast();
 	}
 
+	// add 0 to last char if . exists
+	if (calc_screen[calc_screen.length - 1] === '.') {
+		//delete the last letter
+		document.getElementById("demo").innerHTML = calc_screen + '0';
+	}
 }
 
-/*
- ** write just one dot bofore or after any sign
+/**
+ * write just one dot before or after any sign
+ *
+ * @return void
  */
 function singleDot() {
 	// calculator screen value
 	var calc_screen = document.getElementById("demo").innerHTML;
-	// calculatoe screen length
-	var screen_numbers = document.getElementById("demo").innerHTML.length;
-	// button input
-	var input = this.value;
+
 	// whole string after deleting the last letter
 	var deleteLast = calc_screen.substring(0, calc_screen.length - 1);
 	// signs length
@@ -147,8 +157,10 @@ function singleDot() {
 }
 
 
-/*
- // function to calculate the operation
+/**
+ * function to calculate the operation
+ *
+ * @return void
  */
 function calculate() {
 	// calculator screen value
@@ -157,8 +169,10 @@ function calculate() {
 
 }
 
-/*
- ** get result function
+/**
+ * get result function
+ *
+ * @return void
  */
 function result() {
 	// calculator screen value
