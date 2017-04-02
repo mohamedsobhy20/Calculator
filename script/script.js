@@ -1,35 +1,19 @@
 //add event listeners to  buttons on window load
 window.onload = function () {
-	document.getElementById("plus-btn").addEventListener("click", replace);
-	document.getElementById("min-btn").addEventListener("click", replace);
-	document.getElementById("mul-btn").addEventListener("click", replace);
-	document.getElementById("divison_btn").addEventListener("click", replace);
-	document.getElementById("dot-btn").addEventListener("click", inputValue);
+	var operationsArray = ["plus-btn","min-btn","mul-btn","divison_btn"]
+						for (i=0 ; i < operationsArray.length ; i++) {
+						document.getElementById(operationsArray[i]).addEventListener("click", replace);
+						}
+	
+	var buttonsArray = ["plus-btn","min-btn","mul-btn","divison_btn","dot-btn","zero","one","two",
+						"three","four","five","six","seven","eight","nine","plus-btn","min-btn"
+						,"mul-btn","divison_btn","clear"]
+						for (i=0 ; i < buttonsArray.length ; i++) {
+						document.getElementById(buttonsArray[i]).addEventListener("click", inputValue);
+						}
 
 	document.getElementById("dot-btn").addEventListener("click", singleDot);
-
-	document.getElementById("zero").addEventListener("click", inputValue);
-
-	document.getElementById("one").addEventListener("click", inputValue);
-	document.getElementById("two").addEventListener("click", inputValue);
-	document.getElementById("three").addEventListener("click", inputValue);
-
-	document.getElementById("four").addEventListener("click", inputValue);
-	document.getElementById("five").addEventListener("click", inputValue);
-	document.getElementById("six").addEventListener("click", inputValue);
-
-	document.getElementById("seven").addEventListener("click", inputValue);
-	document.getElementById("eight").addEventListener("click", inputValue);
-	document.getElementById("nine").addEventListener("click", inputValue);
-
-	document.getElementById("plus-btn").addEventListener("click", inputValue);
-	document.getElementById("min-btn").addEventListener("click", inputValue);
-	document.getElementById("mul-btn").addEventListener("click", inputValue);
-	document.getElementById("divison_btn").addEventListener("click", inputValue);
-
-	document.getElementById("clear").addEventListener("click", inputValue);
 	document.getElementById("delete").addEventListener("click", removeLast);
-
 	document.getElementById("result").addEventListener("click", result);
 };
 
@@ -48,7 +32,6 @@ function removeLast() {
 	//delete the last letter
 	document.getElementById("demo").innerHTML = calc_screen.substring(0, calc_screen.length - 1);
 }
-
 
 /**
  * input the value of the button to the calculator screen
@@ -79,7 +62,6 @@ function inputValue() {
 	}
 }
 
-
 /**
  * replace signs function to change the operation
  *
@@ -109,7 +91,6 @@ function replace() {
 function singleDot() {
 	// calculator screen value
 	var calc_screen = document.getElementById("demo").innerHTML;
-
 	// whole string after deleting the last letter
 	var deleteLast = calc_screen.substring(0, calc_screen.length - 1);
 	// signs length
@@ -138,8 +119,8 @@ function singleDot() {
 	if (last_index <= 0) {
 
 		if (calc_screen.lastIndexOf(".") > calc_screen.indexOf(".")) {
-
-			document.getElementById("demo").innerHTML = deleteLast;
+		
+			 removeLast();
 		}
 
 	} else {
