@@ -7,7 +7,7 @@
   width: 335px;
   height: 270px;
   background-color: #8bceeb;
-  box-shadow: 0px 4px #009ce3;
+  box-shadow: 0 4px #009ce3;
   border-radius: 5px;
   z-index: 2; }
   .calculator button {
@@ -20,13 +20,13 @@
     margin-right: 3px;
     border-radius: 5px;
     font-size: 16px;
-    box-shadow: 0px 4px #78a9ba;
+    box-shadow: 0 4px #78a9ba;
     outline: none;
     transition: .3s; }
     .calculator button:hover {
       cursor: pointer;
       color: white;
-      box-shadow: 0px 4px #6b54d3;
+      box-shadow: 0 4px #6b54d3;
       background-color: #9c89f5; }
     .calculator button:active {
       box-shadow: none;
@@ -57,13 +57,13 @@
   margin-left: 22px; }
   .screen-area .clearing-buttons button {
     width: 30px;
-    margin: 0px;
+    margin: 0;
     background-color: #ffa0a8;
     color: white;
-    box-shadow: 0px 4px #ff7b88; }
+    box-shadow: 0 4px #ff7b88; }
     .screen-area .clearing-buttons button:hover {
       background: #f68991;
-      box-shadow: 0px 4px #d3545d; }
+      box-shadow: 0 4px #d3545d; }
     .screen-area .clearing-buttons button:active {
       box-shadow: none; }
 
@@ -78,10 +78,10 @@
     text-align: left; }
   .calculations-buttons .result {
     background: #f1ff92;
-    box-shadow: 0px 4px #9da853; }
+    box-shadow: 0 4px #9da853; }
     .calculations-buttons .result:hover {
       background: #abb850;
-      box-shadow: 0px 4px #717a33; }
+      box-shadow: 0 4px #717a33; }
     .calculations-buttons .result:active {
       box-shadow: none; }
 
