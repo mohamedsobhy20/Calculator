@@ -6,36 +6,6 @@
 // strict mode to introduce better error checking in the code
 "use strict";
 
-/**
- *
- * add event listeners to clicked buttons for all program functions
- */
-window.onload = function ()
-{
-    var i; //loop counter
-
-    var operations_array = [ "plus-btn", "min-btn", "mul-btn", "division_btn" ];
-
-    // add event listener to operations buttons
-    for ( i = 0; i < operations_array.length; i++ ) {
-        document.getElementById ( operations_array[ i ] ).addEventListener ( "click", prevent_repeating );
-    }
-
-    var buttons_array = [ "plus-btn", "min-btn", "mul-btn", "division_btn", "dot-btn", "zero", "one", "two",
-        "three", "four", "five", "six", "seven", "eight", "nine", "plus-btn", "min-btn",
-        "mul-btn", "division_btn", "clear"
-    ];
-
-    // add event listener to numbers buttons
-    for ( i = 0; i < buttons_array.length; i++ ) {
-        document.getElementById ( buttons_array[ i ] ).addEventListener ( "click", input_value );
-    }
-
-    // add event listener to other buttons
-    document.getElementById ( "dot-btn" ).addEventListener ( "click", single_dot );
-    document.getElementById ( "delete" ).addEventListener ( "click", remove_last );
-    document.getElementById ( "result" ).addEventListener ( "click", result );
-};
 
 
 /**
@@ -43,6 +13,7 @@ window.onload = function ()
  *
  * @return void
  */
+
 function remove_last ()
 {
     // calculator screen value
@@ -58,20 +29,23 @@ function remove_last ()
  *
  * @return void
  */
-function input_value ()
+var input_value = function  ()
 {
     // vars
     var input, calc_screen, not_start;
-    input       = this.value; // clicked btn val
+    input       = this.innerHTML; // clicked btn val
     calc_screen = document.getElementById ( "demo" ).innerHTML; // calculator screen value
-    not_start   = [ "+", "�", "x" ]; // the screen mustn't start with this array items
+    not_start   = [ "+", "÷", "x" ]; // the screen mustn't start with this array items
 
 
     // clear screen if first input from @not_star else type input
-    if ( !calc_screen && not_start.indexOf ( input ) >= 0 || !input ) {
+    if ( !calc_screen && not_start.indexOf ( input ) >= 0 || input == "C" ) {
         document.getElementById ( "demo" ).innerHTML = "";
     } else {
         document.getElementById ( "demo" ).innerHTML += input;
+    }
+    if (input == "=") {
+        document.getElementById ( "demo" ).innerHTML =  calc_screen.replace("=","");
     }
 }
 
@@ -84,9 +58,9 @@ function prevent_repeating ()
 {
     //vars
     var input, calc_screen, signs;
-    input       = this.value;  // clicked btn val
+    input       = this.innerHTML;  // clicked btn val
     calc_screen = document.getElementById ( "demo" ).innerHTML; // calculator screen value
-    signs       = [ "-", "+", "�", "x" ]; // signs array
+    signs       = [ "-", "+", "÷", "x" ]; // signs array
 
     // deleting last letter if this letter is a sign and the input is a sign also
     if ( signs.indexOf ( calc_screen[ calc_screen.length - 1 ] ) >= 0 && signs.indexOf ( input ) >= 0 ) {
@@ -110,9 +84,9 @@ function single_dot ()
     //vars
     var calc_screen, signs, length, temp_index, last_index;
     calc_screen = document.getElementById ( "demo" ).innerHTML; // calculator screen value
-    signs       = [ "-", "+", "�", "x" ]; // signs array
+    signs       = [ "-", "+", "÷", "x" ]; // signs array
     length      = signs.length; // signs array length
-    temp_index  = 0; //temporary index insidel loop
+    temp_index  = 0; //temporary index inside loop
     last_index  = 0; // last sign index
 
     // get last sign index
@@ -154,13 +128,14 @@ function single_dot ()
  *
  * @return void
  */
-function calculate ()
-{
+function calculate () {
+
+
     // calculator screen value
-    var calc_screen = document.getElementById ( "demo" ).innerHTML;
+    var calc_screen = document.getElementById("demo").innerHTML;
 
     // evaluating
-    document.getElementById ( "demo" ).innerHTML = eval ( (calc_screen.replace ( "x", "*" )).replace ( "�", "/" ) );
+    document.getElementById("demo").innerHTML = eval((calc_screen.replace("x", "*")).replace("÷", "/"));
 }
 
 /**
@@ -173,7 +148,8 @@ function result ()
     //vars
     var calc_screen, signs;
     calc_screen = document.getElementById ( "demo" ).innerHTML; // calculator screen value
-    signs       = [ "-", "+", "�", "x" ]; // signs array
+    signs       = [ "-", "+", "÷", "x" ]; // signs array
+
 
     // if the last char is a sign , delete last letter then calculate
     if ( signs.indexOf ( calc_screen[ calc_screen.length - 1 ] ) >= 0 ) {
@@ -187,4 +163,35 @@ function result ()
     if ( !calc_screen ) {
         document.getElementById ( "demo" ).innerHTML = "";
     }
+
 }
+
+
+/**
+ *
+ * add event listeners to clicked buttons for all program functions
+ */
+window.onload = function ()
+{
+    var i; //loop counter
+
+    var operations_array = [ "plus-btn", "min-btn", "mul-btn", "division_btn" ];
+
+    // add event listener to operations buttons
+    for ( i = 0; i < operations_array.length; i++ ) {
+        document.getElementById ( operations_array[ i ] ).addEventListener ( "click", prevent_repeating );
+    }
+
+
+
+    var buttons = document.querySelectorAll("button");
+    // add event listener to numbers buttons
+    for ( i = 0; i < buttons.length; i++ ) {
+        buttons[ i ].onclick = input_value;
+    }
+
+    // add event listener to other buttons
+    document.getElementById ( "result" ).addEventListener ( "click", result );
+    document.getElementById ( "dot-btn" ).addEventListener ( "click", single_dot );
+    document.getElementById ( "delete" ).addEventListener ( "click", remove_last );
+};
